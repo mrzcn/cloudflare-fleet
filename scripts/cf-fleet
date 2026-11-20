@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Run the cf-fleet CLI without installing a package.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m cf_fleet "$@"

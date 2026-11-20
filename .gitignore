@@ -1,0 +1,30 @@
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.env
+!.env.example
+.secrets/
+**/cloudflare.env
+
+# Local audit / inventory dumps (may contain zone lists, IPs)
+reports/**
+!reports/.gitkeep
+*.inventory.json
+*.audit.json
+*_live_check*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

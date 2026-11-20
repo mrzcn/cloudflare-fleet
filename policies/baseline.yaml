@@ -1,0 +1,20 @@
+# Safe fleet baseline — apply with:
+#   ./scripts/cf-fleet apply-baseline --dry-run
+#   ./scripts/cf-fleet apply-baseline
+#
+# Intentionally does NOT change ssl mode (flexible → full/strict).
+# Verify origin HTTPS before raising SSL encryption mode.
+
+name: baseline
+description: HTTPS redirect, modern TLS floor, medium security, Rocket Loader off, sane browser cache TTL
+
+settings:
+  always_use_https: "on"
+  min_tls_version: "1.2"
+  security_level: "medium"
+  rocket_loader: "off"
+  browser_cache_ttl: 14400
+
+# Only raise min_tls when current value is below this (1.0 / 1.1 → 1.2).
+# Leave 1.3 alone.
+min_tls_floor: "1.2"
